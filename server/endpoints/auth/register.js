@@ -4,10 +4,13 @@ const bcrypt = require("bcrypt")
 const register = async (req, res) => {
     const { username, password } = req.body
     const user = new User({ username, hash: bcrypt.hashSync(password, 1) })
-    try {
+    try {       
         await user.save()
         res.status(201).json({ message: "User created" })
     } catch (err) {
+        if (err.code === 11000) {
+            return res.status(409).json({ message: "Username already exists" })
+        }
         res.status(500).json({ message: err.message })
     }
 }
