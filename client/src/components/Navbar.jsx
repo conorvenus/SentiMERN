@@ -13,20 +13,20 @@ export default function Navbar() {
                     <li>
                         <Link to="/" className="flex items-center gap-3">
                             <HomeIcon className="w-6 h-6" /> 
-                            Home
+                            <span className="hidden md:block">Home</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to={isAuthenticated() ? "/logout" : "/login"} className="flex items-center gap-3 bg-slate-900 rounded-lg px-4 py-2 border-slate-800 border">
+                        <Link to={isAuthenticated() ? "/logout" : "/login"} className="flex items-center gap-3 bg-slate-900 rounded-lg px-4 py-2 border-slate-800 border max-sm:rounded-full max-sm:aspect-square">
                             {isAuthenticated() ? <ArrowLeftOnRectangleIcon className="w-6 h-6" /> : <ArrowRightOnRectangleIcon className="w-6 h-6" />}
-                            {isAuthenticated() ? "Logout" : "Login"}
+                            <span className="hidden md:block">{isAuthenticated() ? "Logout" : "Login"}</span>
                         </Link>
                     </li>
                     {!isAuthenticated() && (
                         <li>
-                            <Link to="/register" className="flex items-center gap-3 bg-slate-900 rounded-lg px-4 py-2 border-slate-800 border">
+                            <Link to="/register" className="flex items-center gap-3 bg-slate-900 rounded-lg px-4 py-2 border-slate-800 border max-sm:rounded-full max-sm:aspect-square">
                                 <UserPlusIcon className="w-6 h-6" /> 
-                                Register
+                                <span className="hidden md:block">Register</span>
                             </Link>
                         </li>
                     )}
