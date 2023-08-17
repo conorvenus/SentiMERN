@@ -10,7 +10,6 @@ mongoose
     .then(() => console.log("Connected to database..."))
 
 app.use(express.json())
-app.use(express.static("../client/dist"))
 app.use(cookieParser())
 app.use('/api/auth', require("./endpoints/auth/authRouter"))
 app.use('/api/predict', async (req, res) => {
@@ -39,6 +38,13 @@ app.use('/api/predict', async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: error.message })
     }    
+})
+app.get("/*", function (req, res) {
+    res.sendFile(path.join(__dirname, "../client/dist/index.html"), function (err) {
+      if (err) {
+        res.status(500).send(err)
+      }
+    })
 })
 
 app.listen(3000, () => console.log("Server started..."))
