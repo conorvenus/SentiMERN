@@ -3,6 +3,7 @@ const app = express()
 const mongoose = require("mongoose")
 const jwt = require("jsonwebtoken")
 const cookieParser = require("cookie-parser")
+const path = require("path")
 require("dotenv").config()
 
 mongoose
