@@ -10,6 +10,7 @@ mongoose
     .then(() => console.log("Connected to database..."))
 
 app.use(express.json())
+app.use(express.static("../client/dist"))
 app.use(cookieParser())
 app.use('/api/auth', require("./endpoints/auth/authRouter"))
 app.use('/api/predict', async (req, res) => {
