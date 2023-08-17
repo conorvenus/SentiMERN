@@ -1,4 +1,3 @@
-import { RequireAuth } from "react-auth-kit"
 import { useState } from "react"
 
 export default function Home() {
@@ -8,11 +7,12 @@ export default function Home() {
     async function handleSubmit(event) {
         event.preventDefault()
         try {
-            const response = await fetch(`/api/predict/${text}`, {
-                method: "GET",
+            const response = await fetch(`/api/predict`, {
+                method: "POST",
                 headers: {
                     "Content-Type": "application/json"
-                }
+                },
+                body: JSON.stringify({ text })
             })
             const data = await response.json()
             if (!response.ok) throw new Error(data.message)

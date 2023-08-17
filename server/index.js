@@ -12,7 +12,7 @@ mongoose
 app.use(express.json())
 app.use(cookieParser())
 app.use('/api/auth', require("./endpoints/auth/authRouter"))
-app.use('/api/predict/:text', async (req, res) => {
+app.use('/api/predict', async (req, res) => {
     if (!req.cookies || !req.cookies._auth) return res.status(401).json({ message: "Unauthorized" })
 
     const token = req.cookies._auth
@@ -23,13 +23,16 @@ app.use('/api/predict/:text', async (req, res) => {
         return res.status(401).json({ message: "Unauthorized" })
     }
 
-    const text = req.params.text
+    const text = req.body.text 
+
     try {
-        const response = await fetch(`http://127.0.0.1:8000/api/predict/${text}`, {
-            method: 'GET',
+        const response = await fetch("http://127.0.0.1:8000/api/predict", {
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
-            }})
+            },
+            body: JSON.stringify({ text })
+        })
         const json = await response.json()
         res.json(json)
     } catch (error) {
