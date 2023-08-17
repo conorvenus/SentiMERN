@@ -40,6 +40,9 @@ app.use('/api/predict', async (req, res) => {
         res.status(500).json({ message: error.message })
     }    
 })
+
+app.use(express.static(path.join(__dirname, "../client/dist")))
+
 app.get("/*", function (req, res) {
     res.sendFile(path.join(__dirname, "../client/dist/index.html"), function (err) {
       if (err) {
