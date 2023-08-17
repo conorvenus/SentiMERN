@@ -1,4 +1,5 @@
 import { useState } from "react"
+import FormButton from "../components/FormButton"
 
 export default function Home() {
     const [text, setText] = useState("")
@@ -28,7 +29,7 @@ export default function Home() {
                     <label htmlFor="text" className="block mb-2 text-sm font-medium text-slate-200">Text</label>
                     <textarea value={text} onChange={event => setText(event.target.value)} type="username" name="username" id="username" className="bg-slate-800 border-slate-700 border text-slate-400 placeholder:text-slate-400 text-lg rounded-lg block w-full p-2.5 min-h-[200px] focus:outline-slate-500 focus:outline" required />
                 </div>
-                <button type="submit" className="bg-slate-900 rounded-lg py-2 border-slate-800 border">🥳 Analyse Sentiment</button>
+                <FormButton text="🥳 Analyse Sentiment" />
                 <div className="flex gap-8 max-[375px]:flex-col">
                     <article className="bg-slate-800/50 border border-slate-700/50 flex flex-col items-center py-4 rounded-md flex-1 gap-4">
                         <h1 className="text-7xl">😀</h1>
