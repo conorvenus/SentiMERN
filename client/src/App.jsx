@@ -19,7 +19,7 @@ export default function App() {
       authType='cookie'
       authName='_auth'
       cookieDomain={window.location.hostname}
-      cookieSecure
+      cookieSecure={false}
     >
       <div className="mx-auto max-w-7xl p-8">
         <BrowserRouter>
