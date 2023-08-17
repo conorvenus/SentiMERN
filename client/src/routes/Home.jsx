@@ -11,15 +11,19 @@ export default function Home() {
                 </div>
                 <button type="submit" className="bg-slate-900 rounded-lg py-2 border-slate-800 border">🥳 Analyse Sentiment</button>
                 <div className="flex gap-8">
-                    <article className="bg-slate-800/50 border border-slate-700/50 flex flex-col items-center py-4 rounded-md flex-1">
+                    <article className="bg-slate-800/50 border border-slate-700/50 flex flex-col items-center py-4 rounded-md flex-1 gap-4">
                         <h1 className="text-7xl">😀</h1>
-                        <h2 className="text-4xl text-slate-500">Positive</h2>
-                        <p className="text-4xl text-slate-400">50%</p>
+                        <div className="text-center">
+                            <h2 className="text-4xl text-slate-500">Positive</h2>
+                            <p className="text-4xl text-slate-400">50%</p>
+                        </div>
                     </article>
-                    <article className="bg-slate-800/50 border border-slate-700/50 flex flex-col items-center py-4 rounded-md flex-1">
+                    <article className="bg-slate-800/50 border border-slate-700/50 flex flex-col items-center py-4 rounded-md flex-1 gap-4">
                         <h1 className="text-7xl">😡</h1>
-                        <h2 className="text-4xl text-slate-500">Negative</h2>
-                        <p className="text-4xl text-slate-400">50%</p>
+                        <div className="text-center">
+                            <h2 className="text-4xl text-slate-500">Negative</h2>
+                            <p className="text-4xl text-slate-400">50%</p>
+                        </div>
                     </article>
                 </div>
             </form>
