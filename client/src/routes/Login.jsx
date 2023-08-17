@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom"
 export default function Login() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [error, setError] = useState('')
+
     const signIn = useSignIn()
     const navigate = useNavigate()
 
@@ -32,7 +34,7 @@ export default function Login() {
                 throw new Error('Something went wrong!')
             }
         } catch (error) {
-            console.error(error)
+            setError(error.message)
         }
     }
 
@@ -47,6 +49,7 @@ export default function Login() {
                 <input value={password} onChange={e => setPassword(e.target.value)} type="password" name="password" id="password" className="bg-slate-800 border-slate-700 border text-slate-400 placeholder:text-slate-400 sm:text-sm rounded-lg block w-full p-2.5" required/>
             </div>
             <button type="submit" className="bg-slate-900 rounded-lg py-2 border-slate-800 border">Sign in</button>
+            <p className="text-md text-center font-light text-red-300">{error}</p>
             <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Don’t have an account yet? <Link to="/register" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Register</Link>
             </p>
