@@ -34,14 +34,14 @@ export default function Home() {
                         <h1 className="text-7xl">😀</h1>
                         <div className="text-center">
                             <h2 className="text-4xl text-slate-500">Positive</h2>
-                            <p className="text-4xl text-slate-400">{positive.toPrecision(2)}%</p>
+                            <p className="text-4xl text-slate-400">{positive.toFixed(0)}%</p>
                         </div>
                     </article>
                     <article className="bg-slate-800/50 border border-slate-700/50 flex flex-col items-center py-4 rounded-md flex-1 gap-4">
                         <h1 className="text-7xl">😡</h1>
                         <div className="text-center">
                             <h2 className="text-4xl text-slate-500">Negative</h2>
-                            <p className="text-4xl text-slate-400">{(100 - positive).toPrecision(2)}%</p>
+                            <p className="text-4xl text-slate-400">{(100 - positive.toFixed(0))}%</p>
                         </div>
                     </article>
                 </div>
