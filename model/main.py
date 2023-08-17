@@ -1,10 +1,25 @@
 import pickle
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 vectorizer = pickle.load(open("vectorizer.pkl", "rb"))
 model = pickle.load(open("model.pkl", "rb"))
 
+
 app = FastAPI()
+
+# Configure CORS
+origins = [
+    "http://localhost:3000",  # Replace with your Express app's URL
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/api/predict/{text}")
 def predict(text: str):
