@@ -1,6 +1,6 @@
 # 😎 SentiMERN
 
-A sentiment analysis web app built on the MERN stack, backend by a logistic regression bag-of-words model, which achieves 88% accuracy on the testing dataset.
+A sentiment analysis web app built on the MERN stack, backed by a logistic regression bag-of-words model, which achieves 88% accuracy on the testing dataset.
 
 Experience a live demo at [SentiMERN](https://sentimern.conorvenus.uk), where you will find a beautiful design, powered by React, Tailwind CSS and HeroIcons.
 
